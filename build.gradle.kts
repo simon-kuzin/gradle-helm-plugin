@@ -4,12 +4,11 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.net.URL
 
-
 plugins {
     kotlin("jvm")
     id("java-gradle-plugin")
-    id("com.gradle.plugin-publish") version "0.10.0"
-    id("org.jetbrains.dokka") version "0.9.17"
+    id("com.gradle.plugin-publish") version "0.10.1"
+    id("org.jetbrains.dokka") version "0.10.1"
     id("maven-publish")
     id("org.asciidoctor.convert") version "1.5.9.2"
 }
@@ -117,10 +116,12 @@ pluginBundle {
 
 tasks.named("dokka", DokkaTask::class) {
     outputFormat = "html"
-    externalDocumentationLink(delegateClosureOf<DokkaConfiguration.ExternalDocumentationLink.Builder> {
-        url = URL("https://docs.gradle.org/current/javadoc/")
-    })
-    reportUndocumented = false
+    configuration {
+        externalDocumentationLink {
+            url = URL("https://docs.gradle.org/current/javadoc/")
+        }
+        reportUndocumented = false
+    }
 }
 
 
