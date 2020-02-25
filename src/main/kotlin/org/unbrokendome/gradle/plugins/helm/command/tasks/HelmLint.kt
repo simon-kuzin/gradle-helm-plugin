@@ -25,7 +25,7 @@ open class HelmLint : AbstractHelmCommandTask() {
     @get:[InputDirectory SkipWhenEmpty]
     @Suppress("LeakingThis")
     val chartDir: DirectoryProperty =
-        project.objects.directoryProperty()
+            project.objects.directoryProperty()
 
 
     /**
@@ -33,7 +33,7 @@ open class HelmLint : AbstractHelmCommandTask() {
      */
     @get:[Input Optional]
     val strict: Property<Boolean> =
-        project.objects.property()
+            project.objects.property()
 
 
     /**
@@ -41,7 +41,7 @@ open class HelmLint : AbstractHelmCommandTask() {
      */
     @get:Input
     val values: MapProperty<String, Any> =
-        project.objects.mapProperty()
+            project.objects.mapProperty()
 
 
     /**
@@ -49,7 +49,7 @@ open class HelmLint : AbstractHelmCommandTask() {
      */
     @get:InputFiles
     val valueFiles: ConfigurableFileCollection =
-        project.layout.configurableFiles()
+            project.objects.fileCollection()
 
 
     /**
@@ -60,7 +60,7 @@ open class HelmLint : AbstractHelmCommandTask() {
      */
     @get:[OutputFile Optional]
     val outputMarkerFile: RegularFileProperty =
-        project.objects.fileProperty()
+            project.objects.fileProperty()
 
 
     init {
