@@ -293,7 +293,8 @@ private open class DefaultHelmRelease
 
 
     final override val valueFiles: ConfigurableFileCollection =
-        project.layout.configurableFiles()
+        project.objects.fileCollection()
+
 
 
     final override val dependsOn: SetProperty<String> =
